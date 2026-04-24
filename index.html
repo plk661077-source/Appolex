@@ -155,7 +155,7 @@
     <div id="statusArea" class="status-msg">
         ⚡ একটি বিজ্ঞাপন দেখে প্রিমিয়াম এক্সেস নিন
     </div>
-    <footer>AdsGram নিরাপদ বিজ্ঞাপন নেটওয়ার্ক</footer>
+    <footer> নিরাপদ বিজ্ঞাপন নেটওয়ার্ক</footer>
 </div>
 
 <div id="pageLoader" class="loader-overlay">
@@ -166,7 +166,7 @@
     // ==================== কনফিগারেশন ====================
     // ⚠️ এখানে আপনার আসল AdsGram ব্লক আইডি বসান!
     // ব্লক আইডি পেতে: https://partner.adsgram.ai → রেজিস্ট্রেশন করে ব্লক তৈরি করুন
-    const ADSGRAM_BLOCK_ID = "your-block-id-here";  // 👈 রিপ্লেস করুন আপনার আসল আইডি দিয়ে
+    const ADSGRAM_BLOCK_ID = "int-28401";  // 👈 রিপ্লেস করুন আপনার আসল আইডি দিয়ে
     
     const REDIRECT_URL = "https://www.facebook.com/";
     const COOLDOWN_MINUTES = 10;
@@ -208,9 +208,9 @@
         const active = hasActiveAccess();
         if (active) {
             accessBtn.classList.add("disabled");
-            accessBtn.innerHTML = "✅ আপনি এক্সেস নিয়েছেন (১০ মিনিট অপেক্ষা করুন)";
+            accessBtn.innerHTML = "✅ আপনি এক্সেস নিয়েছেন";
             accessBtn.disabled = true;
-            statusArea.innerHTML = "🔒 প্রিমিয়াম এক্সেস সক্রিয় আছে! ১০ মিনিট পর আবার চেষ্টা করতে পারবেন।";
+            statusArea.innerHTML = "🔒 প্রিমিয়াম এক্সেস সক্রিয় আছে";
             statusArea.className = "status-msg success-msg";
         } else {
             accessBtn.classList.remove("disabled");
@@ -224,7 +224,7 @@
                 statusArea.innerHTML = "⏳ আপনার ১০ মিনিট পার হয়েছে! আবার এড দেখে এক্সেস নিন।";
                 statusArea.className = "status-msg";
             } else if (!localStorage.getItem(STORAGE_KEY)) {
-                statusArea.innerHTML = "🎬 একটি বিজ্ঞাপন সম্পূর্ণ দেখুন, তারপর স্বয়ংক্রিয়ভাবে ফেসবুকে যান!";
+                statusArea.innerHTML = "🎬 একটি বিজ্ঞাপন সম্পূর্ণ দেখুন, তারপর স্বয়ংক্রিয়ভাবে প্রিমিয়াম সাইটের এক্সেস পান";
                 statusArea.className = "status-msg";
             } else {
                 statusArea.innerHTML = "🕒 এক্সেস মেয়াদ শেষ, আবার এড দেখুন!";
@@ -297,7 +297,7 @@
     async function startAccessFlow() {
         // চেক: ইতিমধ্যে এক্সেস আছে?
         if (hasActiveAccess()) {
-            showWarning("আপনি ইতিমধ্যে প্রিমিয়াম এক্সেস পেয়েছেন! ১০ মিনিট পর আবার চেষ্টা করুন।");
+            showWarning("আপনি ইতিমধ্যে প্রিমিয়াম এক্সেস পেয়েছেন।");
             return;
         }
         
